@@ -1,12 +1,6 @@
 // Assignment code here
-var characterLength = 8;
-var choiceArray = [];  
-var specialCharacterArray = ['!', 'S', '&', '^', '?', '+' ];
-var lowerCaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
-'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
-'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
-var numberArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',];
+
+
 
 
 // Get references to the #generate element
@@ -25,11 +19,13 @@ function writePassword() {
   passwordText.value = newPassword;
   } else {
     passwordText.value = "";
-  
   }
-
 }
+
+
+var characterLength = 8;
 function generatePassword() {
+ 
   var password = "";
   for(var i = 0; i < characterLength; i++) {
     var randomIndex = Math.floor(Math.random() * choiceArray.length); 
@@ -38,7 +34,13 @@ function generatePassword() {
   return password;
 }
  
-
+var choiceArray = [];  
+var upperCaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
+'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ];
+var numberArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',];
+var lowerCaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
+'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var specialCharacterArray = ['!', 'S', '&', '^', '?', '+' ];
  
 
 
@@ -47,22 +49,23 @@ function windowPrompts() {
   characterLength = parseInt(prompt(" How many characters would you like? (8 - 128 characters"));
   if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
     alert("Character length has to be a number between 8 and 128");
-    return false;
+    return false
   }
   
-  if (confirm("would you like lowercase letters in your password?")) {
-    choiceArray = choiceArray.concat(lowerCaseArray);
-  } 
-  if (confirm("would you like upppercase letters in your password?")) {
-    choiceArray = choiceArray.concat(upperCaseArray);
-  }
-  if (confirm("would you like special characters in your password?")) {
-    choiceArray = choiceArray.concat(specialCharacterArray);
-  } 
   if (confirm("would you like numbers in your password?")) {
     choiceArray = choiceArray.concat(numberArray);
   }
-  return true;
+   if(confirm("would you like upppercase letters in your password?")) {
+    choiceArray = choiceArray.concat(upperCaseArray);
+  }
+ if (confirm("would you like lowercase letters in your password?")) {
+    choiceArray = choiceArray.concat(lowerCaseArray);
+  } 
+ if (confirm("would you like special characters in your password?")) {
+    choiceArray = choiceArray.concat(specialCharacterArray);
+  } 
+  return true
+  
   
 }
 
